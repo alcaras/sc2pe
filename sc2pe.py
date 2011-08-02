@@ -148,18 +148,66 @@ def simulate_group(A, B, C, D):
 
     return [wWM, second, third, lLM]
 
+master = { }
 
+def tab_add(stage, who):
+    if stage not in master:
+        master[stage] = { }
+    else:
+        if who not in master[stage]:
+            master[stage][who] = 1
+        else:
+            master[stage][who] = master[stage][who] + 1
 
 def simulate_gsl_august():
     # group stage
-    A1, A2, _, _ = simulate_group("NesTea", "Kyrix", "MMA", "Happy")
-    B1, B2, _, _ = simulate_group("MC", "MVP", "Polt", "Noblesse")
-    C1, C2, _, _ = simulate_group("Bomber", "viOlet", "HuK", "Killer")
-    D1, D2, _, _ = simulate_group("CoCa", "Keen", "NaDa", "Alicia")
-    E1, E2, _, _ = simulate_group("Byun", "Zenio", "asd", "Puzzle")
-    F1, F2, _, _ = simulate_group("TricKsteR", "Ryung", "aLive", "TOP")
-    G1, G2, _, _ = simulate_group("HongUn", "Virus", "Clide", "SuperNoVa")
-    H1, H2, _, _ = simulate_group("LoSirA", "Ensnare", "July", "Genius")
+    A1, A2, A3, A4 = simulate_group("NesTea", "Kyrix", "MMA", "Happy")
+    tab_add("A1", A1)
+    tab_add("A2", A2)
+    tab_add("A3", A3)
+    tab_add("A4", A4)
+    
+    B1, B2, B3, B4 = simulate_group("MC", "MVP", "Polt", "Noblesse")
+    tab_add("B1", B1)
+    tab_add("B2", B2)
+    tab_add("B3", B3)
+    tab_add("B4", B4)
+        
+    C1, C2, C3, C4 = simulate_group("Bomber", "viOlet", "HuK", "Killer")
+    tab_add("C1", C1)
+    tab_add("C2", C2)
+    tab_add("C3", C3)
+    tab_add("C4", C4)
+        
+    D1, D2, D3, D4 = simulate_group("CoCa", "Keen", "NaDa", "Alicia")
+    tab_add("D1", D1)
+    tab_add("D2", D2)
+    tab_add("D3", D3)
+    tab_add("D4", D4)
+        
+    E1, E2, E3, E4 = simulate_group("Byun", "Zenio", "asd", "Puzzle")
+    tab_add("E1", E1)
+    tab_add("E2", E2)
+    tab_add("E3", E3)
+    tab_add("E4", E4)
+
+    F1, F2, F3, F4 = simulate_group("TricKsteR", "Ryung", "aLive", "TOP")
+    tab_add("F1", F1)
+    tab_add("F2", F2)
+    tab_add("F3", F3)
+    tab_add("F4", F4)
+
+    G1, G2, G3, G4 = simulate_group("HongUn", "Virus", "Clide", "SuperNoVa")
+    tab_add("G1", G1)
+    tab_add("G2", G2)
+    tab_add("G3", G3)
+    tab_add("G4", G4)
+
+    H1, H2, H3, H4 = simulate_group("LoSirA", "Ensnare", "July", "Genius")
+    tab_add("H1", H1)
+    tab_add("H2", H2)
+    tab_add("H3", H3)
+    tab_add("H4", H4)
 
     # Ro16
     Ro8_A = simulate_bo(3, A1, B2)
@@ -174,6 +222,16 @@ def simulate_gsl_august():
     Ro8_D = simulate_bo(3, G1, H2)
     Ro8_H = simulate_bo(3, G2, H1)
 
+    tab_add("Ro8_A", Ro8_A)
+    tab_add("Ro8_B", Ro8_B)
+    tab_add("Ro8_C", Ro8_C)
+    tab_add("Ro8_D", Ro8_D)
+
+    tab_add("Ro8_E", Ro8_E)
+    tab_add("Ro8_F", Ro8_F)
+    tab_add("Ro8_G", Ro8_G)
+    tab_add("Ro8_H", Ro8_H)
+
     # Ro8
     Ro4_A = simulate_bo(5, Ro8_A, Ro8_B)
     Ro4_B = simulate_bo(5, Ro8_C, Ro8_D)
@@ -181,27 +239,33 @@ def simulate_gsl_august():
     Ro4_C = simulate_bo(5, Ro8_E, Ro8_F)
     Ro4_D = simulate_bo(5, Ro8_G, Ro8_H)
 
+    tab_add("Ro_4_A", Ro4_A)
+    tab_add("Ro_4_B", Ro4_B)
+    tab_add("Ro_4_C", Ro4_C)
+    tab_add("Ro_4_D", Ro4_D)
+
     #Ro4
     Fin_A = simulate_bo(5, Ro4_A, Ro4_B)
     Fin_B = simulate_bo(5, Ro4_C, Ro4_D)
 
+    tab_add("Z_Fin_A", Fin_A)
+    tab_add("Z_Fin_B", Fin_B)
+
     #finals
     Winner = simulate_bo(7, Fin_A, Fin_B)
+
+    tab_add("Z_Winner", Winner)
 
     return Winner
        
 def mass_sim(times):
-    tableau = { }
-    for i in range(0, times):
-        winner = simulate_gsl_august()
-        if winner not in tableau:
-            tableau[winner] = 1
-        else:
-            tableau[winner] = tableau[winner] + 1
-    return tableau
+    for i in range(0, times+1):
+        simulate_gsl_august()
+    return master
 
-pp.pprint(mass_sim(10000000))
-    
+mass_sim(10000000)
+
+pp.pprint(master)    
 
 
     
