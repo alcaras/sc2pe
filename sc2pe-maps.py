@@ -131,7 +131,7 @@ players = {
     # SlayerS
 
     # Prime
-
+    "Terius": ["Z", 2062, {"T":2057, "Z":1959, "P":2032}],
            
            }
 
@@ -510,13 +510,17 @@ def bracket32():
        
 
 # SlayerS v. Prime
+print "[b]SlayerS v. Prime[/b]"
 print "Matchup|Map|SlayerS|Prime|p(SlayersWin)"
-predict_result_on("Dual Sight", "Taeja", "MarineKing")
-predict_result_on("Tal'Darim Altar", "Taeja", "HongUn")
-predict_result_on("Xel'Naga Fortress", "BoxeR", "HongUn")
-predict_result_on("Metalopolis", "GanZi", "HongUn")
-predict_result_on("Crevasse", "Ryung", "HongUn")
+predict_result_on("Dual Sight", "Taeja", "MarineKing") # 1-0
+predict_result_on("Tal'Darim Altar", "Taeja", "HongUn")  # 1-1
+predict_result_on("Xel'Naga Fortress", "BoxeR", "HongUn") # 1-2
+predict_result_on("Metalopolis", "GanZi", "HongUn") # 1-3
+predict_result_on("Crevasse", "Ryung", "HongUn") # 2-3
+predict_result_on("Bel'Shir Beach", "Ryung", "Terius")
 
+print "\n[b]Alternative Scenarios[/b]"
+print "Matchup|Map|SlayerS|Prime|p(SlayersWin)"
 
 predict_result_on("Xel'Naga Fortress", "GanZi", "HongUn")
 predict_result_on("Xel'Naga Fortress", "Alicia", "HongUn")
@@ -530,3 +534,15 @@ predict_result_on("Metalopolis", "YuGiOh", "HongUn")
 predict_result_on("Crevasse", "Alicia", "HongUn")
 predict_result_on("Crevasse", "MMA", "HongUn")
 predict_result_on("Crevasse", "YuGiOh", "HongUn")
+
+predict_result_on("Crossfire", "Ryung", "Terius")
+predict_result_on("Terminus", "Ryung", "Terius")
+predict_result_on("Xel'Naga Caverns", "Ryung", "Terius")
+
+predict_result_on("Bel'Shir Beach", "Ryung", "Polt")
+predict_result_on("Bel'Shir Beach", "Ryung", "Maka")
+predict_result_on("Bel'Shir Beach", "Ryung", "Check")
+predict_result_on("Bel'Shir Beach", "Ryung", "anypro")
+
+# StarTale v. IM
+# what is the first match + map?
