@@ -154,6 +154,7 @@ def predict_result_on(map, A, B):
     
     npA = mpA / (mpA + mpB)
     
+    print matchup, "|", map, "|", A, "|", B, "|", round(npA,4)
     return npA
 
         
@@ -509,5 +510,23 @@ def bracket32():
        
 
 # SlayerS v. Prime
-print predict_result_on("Dual Sight", "Taeja", "MarineKing")
-print predict_result_on("Dual Sight", "Taeja", "MarineKing")
+print "Matchup|Map|SlayerS|Prime|p(SlayersWin)"
+predict_result_on("Dual Sight", "Taeja", "MarineKing")
+predict_result_on("Tal'Darim Altar", "Taeja", "HongUn")
+predict_result_on("Xel'Naga Fortress", "BoxeR", "HongUn")
+predict_result_on("Metalopolis", "GanZi", "HongUn")
+predict_result_on("Crevasse", "Ryung", "HongUn")
+
+
+predict_result_on("Xel'Naga Fortress", "GanZi", "HongUn")
+predict_result_on("Xel'Naga Fortress", "Alicia", "HongUn")
+predict_result_on("Xel'Naga Fortress", "MMA", "HongUn")
+predict_result_on("Xel'Naga Fortress", "YuGiOh", "HongUn")
+
+predict_result_on("Metalopolis", "Alicia", "HongUn")
+predict_result_on("Metalopolis", "MMA", "HongUn")
+predict_result_on("Metalopolis", "YuGiOh", "HongUn")
+
+predict_result_on("Crevasse", "Alicia", "HongUn")
+predict_result_on("Crevasse", "MMA", "HongUn")
+predict_result_on("Crevasse", "YuGiOh", "HongUn")
